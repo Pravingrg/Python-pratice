@@ -1,0 +1,51 @@
+from tkinter import *
+
+def click(event):
+    global value
+    text = event.widget.cget("text")
+    if text == "=":
+        try:
+            result = eval(value.get())
+            value.set(result)
+        except Exception as e:
+            value.set("Error")
+    elif text == "c":
+        value.set("")
+    else:
+        value.set(value.get() + text)
+
+master = Tk()
+
+master.geometry("644x700")
+master.title("Calculator by Pravin")
+
+value = StringVar()
+value.set("")
+screen = Entry(master, textvar=value, font="lucida 40 bold")
+screen.pack(fill=X, ipadx=8, pady=10, padx=10)
+
+button_frame = Frame(master, bg="grey")
+button_frame.pack()
+
+buttons = [
+    '9', '8', '7',
+    '6', '5', '4',
+    '3', '2', '1',
+    '0', '+', '-',
+    '*', '/', 'c',
+    '=', '.'
+]
+
+row_val = 1
+col_val = 0
+
+for button in buttons:
+    btn = Button(button_frame, text=button, padx=10, pady=8, font="lucida 20 bold")
+    btn.grid(row=row_val, column=col_val, padx=4, pady=4)
+    btn.bind("<Button-1>", click)
+    col_val += 1
+    if col_val > 2:
+        col_val = 0
+        row_val += 1
+
+master.mainloop()
