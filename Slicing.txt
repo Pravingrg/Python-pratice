@@ -1,0 +1,53 @@
+# slicing and indexing.
+
+user = input("Enter your email address: ")
+a = user.index("@") # This will show you @ index number.
+print(f"index number of @ is {a}")
+print("Your user name is :" + user[:a]) #slicing after getting index number.
+print("Your domain name is :" + user[a:])
+
+
+# list.
+l = []
+while True: # This line help user to write limitless.
+    user = input("Enter food item you want to store(q for exit):\n")
+    if user.lower() == "q": # This line execute even if user type in capital latter.
+        break
+    else:
+        l.append(user)
+print(l)
+
+# function 
+
+def add(a,b):
+    return a+b
+
+def sub(a,b):
+    return a-b
+
+def mul(a,b):
+    return a*b
+
+def div(a,b):
+    return a/b
+
+choice = int(input("Choose the option:\n1.Addition\n2.Subtraction\n3.Multiply\n4.Divide\n"))
+num1 = int(input("Enter your first number: "))
+num2 = int(input("Enter your second number: "))
+if choice == 1:
+    print(add(num1,num2))
+elif choice == 2:
+    print(sub(num1,num2))
+elif choice == 3:
+    print(mul(num1,num2))
+elif choice == 4:
+    print(div(num1,num2))
+else:
+    print("something wrong.")
+
+
+
+
+
+
+
