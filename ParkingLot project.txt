@@ -1,0 +1,52 @@
+class ParkingLot:
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.available_spaces = capacity
+        self.parked_cars = []
+
+    def park_car(self, car):
+        if self.available_spaces > 0:
+            self.parked_cars.append(car)
+            self.available_spaces -= 1
+            print(f"Car {car} parked successfully.")
+        else:
+            print("Parking lot is full. Cannot park the car.")
+
+    def leave_parking_lot(self, car):
+        if car in self.parked_cars:
+            self.parked_cars.remove(car)
+            self.available_spaces += 1
+            print(f"Car {car} has left the parking lot.")
+        else:
+            print(f"Car {car} is not in the parking lot.")
+
+    def display_parking_status(self):
+        print(f"Parking Lot Status: {self.available_spaces}/{self.capacity} spaces available")
+        print("Parked Cars:", self.parked_cars)
+
+
+def main():
+    parking_lot_capacity = 10
+    parking_lot = ParkingLot(parking_lot_capacity)
+
+    while True:
+        print("\n1. Park Car\n2. Leave Parking Lot\n3. Display Parking Status\n4. Exit")
+        choice = input("Enter your choice (1/2/3/4): ")
+
+        if choice == "1":
+            car_id = input("Enter car ID: ")
+            parking_lot.park_car(car_id)
+        elif choice == "2":
+            car_id = input("Enter car ID: ")
+            parking_lot.leave_parking_lot(car_id)
+        elif choice == "3":
+            parking_lot.display_parking_status()
+        elif choice == "4":
+            print("Exiting the program.")
+            break
+        else:
+            print("Invalid choice. Please enter a valid option.")
+
+
+if __name__ == "__main__":
+    main()
