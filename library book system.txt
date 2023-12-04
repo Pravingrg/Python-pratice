@@ -1,0 +1,43 @@
+def display(books):
+    print("Available Books:", books)
+
+def books_issue(books, book_name):
+    if book_name in books:
+        print("Book available. Issuing", book_name)
+        books.remove(book_name)
+        print("Number of available books:", len(books))
+    else:
+        print("Book not available.")
+
+def update_book_list(books, new_books):
+    books.extend(new_books)
+    print("Book list updated. New books:", books)
+
+def main():
+    library_books = ["harrypotter", "moomen", "spiderman", "batman"]
+
+    while True:
+        print("\nMenu:")
+        print("1. Display available books")
+        print("2. Issue a book")
+        print("3. Update book list")
+        print("4. Exit")
+
+        choice = input("Enter your choice (1-4): ")
+
+        if choice == "1":
+            display(library_books)
+        elif choice == "2":
+            book_to_issue = input("Enter the book you want to issue: ")
+            books_issue(library_books, book_to_issue)
+        elif choice == "3":
+            new_books_list = input("Enter new books (comma-separated): ").split(',')
+            update_book_list(library_books, new_books_list)
+        elif choice == "4":
+            print("Exiting the library system. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please enter a number between 1 and 4.")
+
+if __name__ == "__main__":
+    main()
