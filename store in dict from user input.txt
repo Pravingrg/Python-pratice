@@ -1,0 +1,15 @@
+def d1(**brands):
+    my_dict = {}
+    for key in brands:
+        my_dict.update({key: brands[key]})
+    return my_dict
+
+dict_1 = {}
+
+for a in range(3):
+    model = input("Enter model name: ")
+    year = int(input("Enter year: "))
+    dict_1.update({model: year})
+
+result = d1(**dict_1)
+print(result)
