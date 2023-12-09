@@ -1,0 +1,14 @@
+def l1(*fruits):
+    l = []
+    for fruit in fruits:
+        l.append(fruit)
+    return l
+
+fruit_list = []
+
+for i in range(5):
+    user_input = input("Enter fruit name: ")
+    fruit_list.append(user_input)
+
+result = l1(*fruit_list)
+print(result)
